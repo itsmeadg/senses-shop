@@ -2,6 +2,13 @@
 
 An Angular/rxjs/Firebase shop generated with [Angular CLI](https://github.com/angular/angular-cli). Initially started as a project to learn Angular, thought I'd share it with those interested in maybe developing it further and using it in a production environment. 
 
+Small disclaimer, some things are unfinished:
+- Redirection after login
+- Some loader effects
+- Some route auth guards should be revisited
+- /orders route is not done 
+- /wishlist route is not done
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
