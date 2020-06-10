@@ -1,0 +1,95 @@
+@import '~styles.scss';
+
+.shop-signin {
+    font-family: $font-family-primary;
+    text-align: center;
+    &__title {
+        font-size: 2rem;
+        margin: 1rem 0.7rem 1rem 1.5rem;
+    }
+    &__form {
+        &__group:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+        &__group:first-child {
+            margin-top: 2rem;
+        }
+        &__group {
+            margin: 0 auto;
+            position: relative;
+            width: 30rem;
+            &__input {
+                display: block;
+                font-size: 1.5rem;
+                font-family: inherit;
+                color: inherit;
+                padding: 1.5rem 1rem;
+                border-radius: 2px;
+                border: none;
+                border-bottom: 1px solid $color-gray-light;
+                width: 100%;
+                transition: all .3s;
+                @include respond(tab-port) {
+                    width: 100%;
+                }
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 1rem 2rem rgba($color-black, .1);
+                    border-bottom: 2px solid $color-primary;
+                }
+                &:focus:invalid {
+                    border-bottom: 2px solid $color-secondary-dark;
+                }
+                &::placeholder {
+                    visibility: hidden;
+                }
+            }
+            &__label {
+                position: absolute;
+                pointer-events: none;
+                top: -1.5rem;
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-align: left;
+                margin-left: 1rem;
+                display: block;
+                transition: all .3s;
+            }
+            &__input:placeholder-shown+&__label {
+                font-size: 1.5rem;
+                color: grey;
+                transform: translateY(+3rem);
+            }
+        }
+        &__button {
+            color: $color-white;
+            font-size: 1.5rem;
+            background-color: $color-blue-darker;
+            padding: 1rem 1.5rem;
+            border: none;
+            width: 30rem;
+            cursor: pointer;
+            &:hover {
+                background-color: $color-blue-dark;
+            }
+        }
+    }
+    &__google {
+        position: relative; 
+        margin: 1rem 0;
+        padding: 1rem 1.5rem;
+        color: $color-white;
+        background-color: #4086F4;
+        font-size: 1.5rem;
+        width: 30rem;
+        cursor: pointer;
+        &__icon {
+            background-color: $color-white;
+            padding: .5rem .5rem;
+            position: absolute;
+            top:0;
+            left: 0;
+            height: 100%;
+        }
+    }
+}

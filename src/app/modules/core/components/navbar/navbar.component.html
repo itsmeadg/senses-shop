@@ -1,0 +1,59 @@
+<nav class="shop-nav">
+  <a href="#" class="toggle">
+    <!-- <i class="fa fa-reorder"></i> -->
+  </a>
+  <a class="shop-nav__brand" href="#">
+    <img class="shop-nav__brand__image" src="/assets/images/logo.png">
+  </a>
+  <div class="shop-nav__items" id="navbarLinks">
+    <ul class="shop-nav__items shop-nav__items--start">
+      <li class="shop-nav__items__item" routerLink="/home" routerLinkActive="active">
+        <a class="shop-nav__items__item__link">Home</a>
+      </li>
+      <li class="shop-nav__items__item" routerLink="/shop" routerLinkActive="active">
+        <a class="shop-nav__items__item__link">Shop</a>
+      </li>
+    </ul>
+    <ul class="shop-nav__items shop-nav__items--end">
+      <li class="shop-nav__items__item" routerLink="/wishlist" routerLinkActive="active">
+        <a class="shop-nav__items__item__link" id="cart">
+          <div class="cart badge">
+            <i class="material-icons"> favorite_border </i>
+          </div>
+        </a>
+      </li>
+      <li class="shop-nav__items__item" routerLink="/checkout/cart" routerLinkActive="active">
+        <a class="shop-nav__items__item__link" id="cart">
+          <div class="cart badge">
+            <i class="material-icons"> shopping_cart </i>
+            <span [hidden]="!cart.totalItemsCount" class="badge__container" *ngIf="cart$ | async as cart">
+              <span>{{ cart.totalItemsCount }}</span>
+            </span>
+          </div>
+        </a>
+      </li>
+      <li *ngIf="user.uid; else anonymousUser" ngbDropdown class="shop-nav__items__item dropdown">
+        <a ngbDropdownToggle class="shop-nav__items__item__link dropdown__button" role="button" aria-haspopup="true" aria-expanded="false">
+          Account </a>
+        <div class="dropdown__content">
+          <a class="dropdown__content__item" routerLink="/orders">My Orders</a>
+          <ng-container *ngIf="user.roles?.admin">
+            <a class="dropdown__content__item" routerLink="/admin/orders">Manage Orders</a>
+            <a class="dropdown__content__item" routerLink="/admin/products">Manage Products</a>
+          </ng-container>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown__content__item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+      <ng-template #anonymousUser>
+        <li class="shop-nav__items__item">
+          <a class="shop-nav__items__item__link" (click)="login()">Login</a>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+</nav>
+
+<app-dialog [(visible)]="showDialog">
+  <sign-in></sign-in>
+</app-dialog>

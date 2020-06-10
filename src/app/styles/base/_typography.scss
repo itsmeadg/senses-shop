@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|PT+Sans');
+
+//Font setup
+$montserrat: Montserrat, sans-serif;
+$open-sans: 'Open Sans', sans-serif;
+
+//Theme fonts
+$font-family-primary: $open-sans;
+$font-family-secondary: $montserrat;
+
+
+.text-right {
+  text-align: right;
+}
+
+h1 {
+
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: $font-family-primary;
+}

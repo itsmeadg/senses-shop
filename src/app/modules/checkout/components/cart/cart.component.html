@@ -1,0 +1,34 @@
+<div class="cart-page" *ngIf="cart; else loading">
+  <div *ngIf="cart.totalItemsCount" class="cart-page__content">
+    <div class="cart-page__content__products">
+      <p class="cart-page__content__products__count">
+        You have {{ cart.totalItemsCount }} items in your cart.
+        <button *ngIf="cart.totalItemsCount > 0" (click)="clearCart()" class="btn btn--inverted btn--gray">
+          <span class="btn__text">Clear</span>
+        </button>
+      </p>
+      <div class="cart-page__content__products__product" *ngFor="let product of cartIterable">
+        <app-product-card-horizontal [product]="product" [cart]="cart"></app-product-card-horizontal>
+      </div>
+      <div class="cart-page__content__products__button">
+        <button class="btn btn--inverted btn--large" *ngIf="cart.totalItemsCount" (click)="checkOut()">
+          <span class="btn__text">
+            <i class="fas fa-location-arrow"></i> To Shipping</span>
+        </button>
+      </div>
+    </div>
+    <div class="cart-page__content__sumary">
+      <order-summary [cart]="cart" [cartIterable]="cartIterable"></order-summary>
+    </div>
+  </div>
+
+  <div *ngIf="!cart.totalItemsCount" class="cart-page__empty">
+    <img class="cart-page__empty__image" src="assets/shop/cart.svg">
+    <h2 class="cart-page__empty__subtitle">Your cart is empty.</h2>
+    <p class="cart-page__empty__text">Looks like there are no items in your shopping cart. Click
+      <a class="cart-page__empty__text__link" routerLink="/shop">here</a> to continue shopping.</p>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="loading"></div>
+</ng-template>

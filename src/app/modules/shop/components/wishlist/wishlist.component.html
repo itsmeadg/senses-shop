@@ -1,0 +1,5 @@
+<div class="wishlist" *ngIf="wishlistProducts">
+  <div class="cart-page__content__products__product" *ngFor="let product of wishlistProducts">
+    <app-product-card-horizontal [product]="product" [cart]="cart"></app-product-card-horizontal>
+  </div>
+</div>

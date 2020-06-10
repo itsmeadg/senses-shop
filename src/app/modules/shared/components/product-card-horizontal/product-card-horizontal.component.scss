@@ -1,0 +1,102 @@
+@import "~styles.scss";
+
+.card__horizontal {
+  width: 100%;
+  border: none;
+  border-radius: 0.3rem;
+  position: relative;
+  font-family: $card-font;
+  box-shadow: 0 0.3rem 1.3rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  &__body {
+    display: grid;
+    height: 20rem;
+    grid-template-columns: 0.3fr 0.7fr;
+
+    &__wishlist {
+      cursor: pointer;
+      background-color: transparent;
+      color: black;
+      transition: 0.3s linear;
+      border: none;
+      font-size: 2rem;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      overflow: hidden;
+
+      &:hover {
+        color: red;
+        transition: 0.3s linear;
+        animation: beat 0.3s infinite alternate;
+        @keyframes beat {
+          to {
+            transform: scale(1.4);
+          }
+        }
+      }
+    }
+
+    &__image {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 2;
+      height: 100%;
+
+    }
+
+    &__text {
+      height: 13rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.8rem 4.5rem 1.8rem 1rem;
+
+      &__title {
+        font-size: 1.4rem;
+      }
+      &__detail{
+        &__category {
+          font-size: 1.3rem;
+        }
+
+        &__price {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    &__controls {
+      justify-self: right;
+      padding-right: 3rem;
+  }
+
+
+  }
+
+  @include respond(big-desk) {
+    &__body {
+      &__text {
+        &__title {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+
+  @include respond(tab-land) {
+    &__body {
+      &__text {
+        &__title {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  @include respond(tab-port) {
+  }
+
+  @include respond(phone) {
+  }
+}

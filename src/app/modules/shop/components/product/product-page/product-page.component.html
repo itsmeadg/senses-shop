@@ -1,0 +1,63 @@
+<div class="product-page" *ngIf="currentProduct && cart$ | async as cart">
+  <div class="product-page__left">
+    <img src="{{currentProduct.image}}" class="product-page__left__image">
+  </div>
+  <div class="product-page__content">
+    <div class="product-page__content__branding">
+      <img src="assets/images/logo-blue.png" alt="CrossEngage logo">
+    </div>
+    <div class="product-page__content__specifics">
+      <h1 class="product-page__content__specifics__title">
+        {{currentProduct.name}}
+      </h1>
+      <h2 class="product-page__content__specifics__category">
+        {{currentProduct.category}} | {{currentProduct.gender}}
+      </h2>
+      <h2 class="product-page__content__specifics__category">
+        {{currentProduct.price | currency: 'EUR': 'symbol' }}
+      </h2>
+      <product-add class="product-page__content__specifics__controls" [product]="currentProduct" [cart]="cart"></product-add>
+      <p class="product-page__content__specifics__description">
+        {{currentProduct.description}}
+      </p>
+    </div>
+  </div>
+  <div class="product-page__details">
+    <div class="product-page__details__block">
+      <i class="product-page__details__block__icon fas fa-list-ul"></i>
+      <p class="product-page__details__block__title">
+        Special details:
+      </p>
+      <p class="product-page__details__block__info" *ngFor="let detail of currentProduct.details">
+        {{detail}}
+      </p>
+    </div>
+    <div class="product-page__details__block">
+      <i class="product-page__details__block__icon fas fa-search"></i>
+      <p class="product-page__details__block__title">
+        Materials:
+      </p>
+      <p class="product-page__details__block__info" *ngFor="let material of currentProduct.materials">
+        {{material}}
+      </p>
+    </div>
+    <div class="product-page__details__block">
+      <i class="product-page__details__block__icon fas fa-hand-holding-heart"></i>
+      <p class="product-page__details__block__title">
+        Care instructions:
+      </p>
+      <p class="product-page__details__block__info">
+        {{currentProduct.care}}
+      </p>
+    </div>
+  </div>
+    <!-- {{similarProducts | json}} -->
+  <div class="product-page__suggestions" *ngIf="similarProducts.length && cart">
+    <div class="product-page__suggestions__heading">
+      <h3>You might also be interested in:</h3>
+    </div>
+    <div class="product-page__suggestions__product" *ngFor="let product of similarProducts">
+      <product-card [product]="product" [cart]="cart"></product-card>
+    </div>
+  </div>
+</div>

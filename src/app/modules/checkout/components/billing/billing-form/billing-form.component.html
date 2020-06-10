@@ -1,0 +1,20 @@
+<div class="billing">
+  <h3 class="billing__title">Billing Information:</h3>
+  <form class="billing__form" [formGroup]="form" novalidate>
+    <div class="form__group form__group--long">
+      <input class="form__group__input" type="text" formControlName="name" placeholder="Jane Doe">
+      <label class="form__group__label" for="">Name on credit card</label>
+    </div>
+    <div class="billing__form__cc" [hidden]="formValues?.cardToken">
+      <ngx-stripe-card class="billing__form__cc__input" [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+    </div>
+    <div class="billing__form__filled" *ngIf="formValues?.cardToken">
+      <credit-card [brand]="formValues.brand" [last4]="formValues.last4"></credit-card>
+      <label class="label" for="">Credit card</label>
+    </div>
+    <div class="form__group">
+      <input class="form__group__input" type="text" formControlName="postCode" placeholder="Jane Doe">
+      <label class="form__group__label" for="">Postal code</label>
+    </div>
+  </form>
+</div>

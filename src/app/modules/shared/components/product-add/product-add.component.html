@@ -1,0 +1,11 @@
+<div class="product-control" *ngIf="cart">
+  <div class="product-control__content">
+      <button *ngIf="getProductQuantity(product) === 0" class="btn btn--inverted" (click)="addToCart()">
+        <span class="btn__text">
+          ADD TO CART
+        </span>
+      </button>
+    <product-quantity *ngIf="getProductQuantity(product) > 0" class="product-control__content__quantity" [product]="product" [cart]="cart">
+    </product-quantity>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="shop-billing" *ngIf="cart">
+  <div class="shop-billing__form">
+    <billing-form (validityChange)="billingFormValid = $event"></billing-form>
+    <div class="shop-billing__form__button">
+      <button class="btn btn--inverted btn--large" *ngIf="cart.totalItemsCount > 0" (click)="billingComplete()" [disabled]="!billingFormValid">
+        <span class="btn__text">
+          <i class="far fa-check-circle"></i> Confirmation
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="shop-billing__sumary">
+    <order-summary [cart]="cart" [cartIterable]="cartIterable"></order-summary>
+  </div>
+</div>

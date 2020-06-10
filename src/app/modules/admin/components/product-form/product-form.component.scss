@@ -1,0 +1,55 @@
+@import "~styles.scss";
+
+.shop-admin-product {
+  display: grid;
+  width: 80%;
+  margin: 8rem auto 2rem auto;
+  grid-template-columns: 1fr 1fr;
+  font-size: 1.4rem;
+  font-family: $font-family-primary;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    &__button {
+      margin-left: 1rem;
+    }
+  }
+  &__form {
+    grid-column: 1 / span 1;
+    margin-top: 4rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4rem;
+    &__field {
+      display: block;
+      &--name {
+        grid-column: 1 / span 2;
+      }
+      &--image {
+        grid-column: 1 / span 2;
+      }
+      &--description {
+        grid-column: 1 / span 2;
+      }
+    }
+    &__group {
+      &__item {
+        font-size: 1.3rem;
+      }
+    }
+    &__buttons {
+      grid-column: 1 / span 2;
+    }
+  }
+  &__card {
+    grid-column: 2 / span 1;
+    width: 60%;
+    justify-self: center;
+  }
+}
+
+.loading {
+  margin: 45vh auto;
+}

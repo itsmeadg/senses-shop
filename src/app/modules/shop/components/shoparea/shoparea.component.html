@@ -1,0 +1,21 @@
+<div class="shop-area">
+  <div class="shop-area__filters">
+    <app-product-filter class="shop-area__filters__content" [criteria]="criteria"></app-product-filter>
+  </div>
+  <div class="shop-area__items" *ngIf="loading===false && cart$ | async as cart">
+    <div class="shop-area__items__item" *ngFor="let product of filteredProducts" @fadeIn>
+      <product-card [product]="product" [cart]="cart"></product-card>
+      <div *ngIf="!filteredProducts">
+        <img src="/assets/images/logo.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="shop-area__empty" [hidden]="loading || filteredProducts.length !== 0">
+    <img class="shop-area__empty__image" src="assets/shop/barcode.svg">
+    <h2 class="shop-area__empty__subtitle">No products found.</h2>
+    <p class="shop-area__empty__text">Looks like you need to broaden your search parameters.
+  </div>
+  <div class="shop-area__loading" *ngIf="loading">
+    <img class="shop-area__loading__image" src="assets/images/logo-blue.png">
+  </div>
+</div>

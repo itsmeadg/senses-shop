@@ -1,0 +1,30 @@
+<div class="shop-confirmation" *ngIf="cart">
+    <div class="shop-confirmation__information">
+        <div class="card shop-confirmation__information__shipping" *ngIf="shippingInformation">
+            <h3 class="card__title">Shipping Information</h3>
+            <div class="card__information">
+                <p class="card__information__element">{{shippingInformation.name}}</p>
+                <p class="card__information__element">{{shippingInformation.address}}</p>
+                <p class="card__information__element">{{shippingInformation.city}}, {{shippingInformation.postcode}}</p>
+                <p class="card__information__element">{{shippingInformation.country}}</p>
+            </div>
+        </div>
+        <div class="card shop-confirmation__information__billing" *ngIf="billingInformation">
+            <h3 class="card__title">Billing Information</h3>
+            <div class="card__information">
+                <p class="card__information__element">{{billingInformation.name}}'s</p>
+                <credit-card class="card__information__component" [brand]="billingInformation.brand" [last4]="billingInformation.last4"></credit-card>
+            </div>
+        </div>
+        <div class="shop-confirmation__information__button">
+            <button class="btn btn--inverted btn--large" *ngIf="cart.totalItemsCount > 0" (click)="placeOrder()">
+                <span class="btn__text">
+                    <i class="fas fa-cart-arrow-down"></i> Place Order
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="shop-confirmation__summary">
+        <order-summary [cart]="cart" [cartIterable]="cartIterable"></order-summary>
+    </div>
+</div>

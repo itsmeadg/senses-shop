@@ -1,0 +1,58 @@
+@import "~styles.scss";
+.order-summary {
+  display: grid;
+  list-style-type: none;
+  width: 60rem;
+  padding: 2rem 2rem;
+  box-shadow: 0 0.3rem 1.3rem rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  font-family: $font-family-secondary;
+
+  &__title {
+    font-size: 2rem;
+    margin: 2rem 1rem;
+    padding: 1rem;
+    text-align: left;
+  }
+  &__preview {
+    grid-column: 1 / span 1;
+    justify-self: left;
+    align-self: center;
+    margin-left: 5rem;
+
+  }
+  &__count {
+    grid-column: 2 / span 1;
+    align-self: center;
+    margin: 0 1rem;
+    padding: 1rem;
+    text-align: left;
+    &__number {
+      font-weight: bold;
+    }
+  }
+  &__body {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    &__totals {
+      display: grid;
+      grid-template-columns: 0.7fr 0.3fr;
+      padding: 0 4rem;
+      &__label {
+        grid-column: 1 / span 1;
+        text-align: right;
+        padding: 1rem;
+      }
+      &__price {
+        grid-column: 2 / span 1;
+        padding: 1rem;
+        text-align: right;
+      }
+      &:last-of-type{
+        font-size: 2rem;
+        font-family: $font-family-primary;
+      }
+    }
+  }
+}

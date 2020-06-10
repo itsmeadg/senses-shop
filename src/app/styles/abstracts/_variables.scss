@@ -1,0 +1,59 @@
+//Colors
+
+//Theme
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+//Primary
+$color-black: black;
+$color-white: white;
+$color-primary: #111;
+$color-orange: #f4a840;
+
+//Gray scale
+$color-gray-dark:#404040;
+$color-gray: #FF6978;
+$color-gray-light: #B3B3B3;
+$color-gray-light-1: #f7f7f7;
+$color-gray-light-2: #eee;
+$color-gray-lighter: #ccc;
+$color-gray-lightest:#ececec;
+$color-gray-dark: #777;
+$color-gray-dark-1: #999;
+$color-gray-dark-2: #333;
+
+//Navy scale
+$color-navy-darker:#FF6978;
+$color-navy: #778395;
+$color-navy-light: #F0F2F5;
+$color-navy-lightest:#F5F7FA;
+
+//Blue Scale
+$color-blue-darker: #111;
+$color-blue-dark:#FF6978;
+$color-blue-medium:#0067AB;
+$color-blue: #0d8ade;
+$color-blue-light: #6db4d7;
+$color-blue-half-transparent: rgba(13, 138, 222, 0.5);
+$color-blue-transparent:rgba(13, 138, 222, 0.05);
+
+//Table colors
+$row-separator-color: #F5F5F5;
+
+//Font sizes
+$default-font-size: 1.6rem;
+
+//Font families
+
+//Responsive variables
+$xx-layout : 'only screen and (min-width: 1366px) and (max-width: 1600px)';
+$xl-layout : 'only screen and (min-width: 1200px) and (max-width: 1365px)';
+$lg-layout : 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$md-layout:'only screen and (min-width: 768px) and (max-width: 991px)';
+$xs-layout:'only screen and (max-width: 767px)';
+$sm-layout: 'only screen and (min-width: 576px) and (max-width: 767px)';

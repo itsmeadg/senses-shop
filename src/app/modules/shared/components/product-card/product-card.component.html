@@ -1,0 +1,28 @@
+<div class="card__vertical" @fadeIn>
+  <div class="card__vertical__body">
+    <img class="card__vertical__body__image" routerLink="/shop/{{product.sku}}" [src]="product.image" [hidden]="imgReady" alt="{{product.name}}">
+    <div class="card__vertical__body__text">
+      <h4 class="card__vertical__body__text__title" routerLink="/shop/{{product.sku}}">{{product.name}}</h4>
+      <div class="card__vertical__body__text__detail">
+        <p class="card__vertical__body__text__detail__category">{{product.category}}
+          <span *ngIf="product.gender">| {{product.gender}}</span>
+        </p>
+        <p class="card__vertical__body__text__detail__price">{{product.price | currency: 'EUR': 'symbol'}}</p>
+
+      </div>
+      <button *ngIf="showActions" class="card__vertical__body__wishlist" (click)="toggleWishlist(product.sku)">
+        <i *ngIf="!wishlisted" class="material-icons">
+          favorite_border
+        </i>
+        <i *ngIf="wishlisted" class="material-icons card__vertical__body__wishlist__wishlisted">
+            favorite
+          </i>
+      </button>
+    </div>
+
+    <div class="card__vertical__slider" *ngIf="showActions && cart">
+      <h4 class="card__vertical__slider__product__name" routerLink="/shop/{{product.sku}}">{{product.name}}</h4>
+      <product-add class="card__vertical__slider__product__quantity" [product]="product" [cart]="cart"></product-add>
+    </div>
+  </div>
+</div>

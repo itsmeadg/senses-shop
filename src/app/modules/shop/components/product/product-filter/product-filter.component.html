@@ -1,0 +1,38 @@
+<div class="shop-filters">
+
+  <div class="shop-filters__group">
+    <h3 class="shop-filters__group__heading">Gender</h3>
+    <div class="shop-filters__group__items">
+      <a class="shop-filters__group__items__link" (click)="removeFilter('gender')" [class.shop-filters__group__items__link--active]="!this.criteria.gender">
+        All
+      </a>
+      <a class="shop-filters__group__items__link" *ngFor="let g of genders" (click)="productFilter({type:'gender',name:g})" [class.shop-filters__group__items__link--active]="this.criteria.gender === g">
+        {{g}}
+      </a>
+    </div>
+  </div>
+
+  <div class="shop-filters__group">
+    <h3 class="shop-filters__group__heading">Category</h3>
+    <div class="shop-filters__group__items">
+      <a class="shop-filters__group__items__link" (click)="removeFilter('category')" [class.shop-filters__group__items__link--active]="!this.criteria.category">
+        All
+      </a>
+      <a class="shop-filters__group__items__link" *ngFor="let c of categories$ | async" (click)="productFilter({type:'category', name:c.name})" [class.shop-filters__group__items__link--active]="this.criteria.category === c.name">
+        {{c.name}}
+      </a>
+    </div>
+  </div>
+
+  <div class="shop-filters__group">
+    <h3 class="shop-filters__group__heading">Price</h3>
+    <div class="shop-filters__group__items">
+      <a class="shop-filters__group__items__link" (click)="removeFilter('startPrice'); removeFilter('endPrice')" [class.shop-filters__group__items__link--active]="!this.criteria.startPrice && !this.criteria.endPrice">
+        All
+      </a>
+      <a class="shop-filters__group__items__link" *ngFor="let p of prices" (click)="productFilter(p)" [class.shop-filters__group__items__link--active]="+this.criteria.startPrice === p.startPrice">
+        {{p.name}}
+      </a>
+    </div>
+  </div>
+</div>

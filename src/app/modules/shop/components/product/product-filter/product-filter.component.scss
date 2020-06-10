@@ -1,0 +1,40 @@
+@import '~styles.scss';
+
+.shop-filters {
+    top: 80px;
+    font-family: $font-family-primary;
+    display: grid;
+    grid-template-columns: 1fr;
+    &__group {
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        &__heading {
+            font-family: $font-family-secondary;
+            font-size: 1.7rem;
+        }
+        &__items {
+        display: flex;
+        flex-direction: column;
+          min-width: 10rem;
+            &__link {
+                width: 13rem;
+                padding: 0.4rem 0.8rem;
+                cursor: pointer;
+                margin-top: 1rem;
+                font-size: 1.5rem;
+                &:hover:not(.shop-filters__group__items__link--active) {
+                  color: $color-white;
+                  background-color: $color-blue-dark;
+                }
+                &--active {
+                    background-color: $color-blue-darker;
+                    color: $color-white !important;
+                }
+            }
+        }
+        &__price {
+          width: 16rem;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<div class="order-summary">
+  <h4 class="order-summary__title">Order Summary</h4>
+  <div class="order-summary__preview">
+    <div class="composition">
+      <img
+        *ngFor="let cartItem of cartIterable | slice:0:3; let i=index"
+        src="{{cartItem.image}}"
+        alt="{{cartItem.name}}"
+        class="composition__photo composition__photo--p{{i+1}}">
+    </div>
+  </div>
+  <p class="order-summary__count">You have <span class="order-summary__count__number">{{ cart.totalItemsCount }}</span> items in your shopping cart.</p>
+  <div class="order-summary__body">
+    <div class="order-summary__body__totals">
+        <div class="order-summary__body__totals__label">
+          Subtotal
+        </div>
+        <div class="order-summary__body__totals__price">
+          {{ cart.totalPrice - cart.totalPrice * 19/100 | currency: 'EUR' : 'symbol' }}
+        </div>
+      </div>
+    <div class="order-summary__body__totals">
+      <div class="order-summary__body__totals__label">
+        VAT
+      </div>
+      <div class="order-summary__body__totals__price">
+        {{ cart.totalPrice * 19/100 | currency: 'EUR' : 'symbol' }}
+      </div>
+    </div>
+    <div class="order-summary__body__totals">
+      <div class="order-summary__body__totals__label">
+        Total
+      </div>
+      <div class="order-summary__body__totals__price">
+        {{ cart.totalPrice | currency: 'EUR' : 'symbol' }}
+      </div>
+    </div>
+  </div>
+</div>

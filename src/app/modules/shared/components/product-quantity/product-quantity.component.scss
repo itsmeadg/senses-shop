@@ -1,0 +1,15 @@
+@import '~styles.scss';
+
+.product-quantity{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &__number {
+    font-size: 2rem;
+    margin: 0rem 1rem;
+  }
+
+}

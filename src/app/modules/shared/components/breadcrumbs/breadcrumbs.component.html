@@ -1,0 +1,15 @@
+<div class="breadcrumbs">
+  <div *ngFor="let breadcrumb of breadcrumbs;  let i = index" class="breadcrumbs__breadcrumb">
+    <a 
+    class="breadcrumbs__breadcrumb__link" 
+    [ngClass]="{'deactivated': i >= 1 && breadcrumbs[i-1].completed===false}"
+    (click)="navigate(breadcrumb)" 
+    routerLinkActive="active">
+      <i *ngIf="breadcrumb.completed" class="breadcrumbs__breadcrumb__link__done material-icons"> done </i>
+      <span *ngIf="breadcrumbs.length">{{i+1}}. </span> {{ breadcrumb.name }}
+    </a>
+    <span *ngIf="i < breadcrumbs.length-1" class="breadcrumbs__breadcrumb__separator">
+      <i class="fas fa-angle-right"></i>
+    </span>
+  </div>
+</div>

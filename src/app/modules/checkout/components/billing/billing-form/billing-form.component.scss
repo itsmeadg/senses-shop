@@ -1,0 +1,45 @@
+@import '~styles.scss';
+.billing {
+    font-family: $font-family-primary;
+    width: 60rem;
+    padding: 2rem 2rem;
+    box-shadow: 0 0.3rem 1.3rem rgba(0, 0, 0, 0.2);
+    &__title {
+        font-size: 2rem;
+        margin: 2rem 1rem;
+        padding: 1rem;
+        font-family: $font-family-secondary;
+    }
+    &__form {
+        display: grid;
+        width: 70%;
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
+        &__cc {
+            position: relative;
+            max-height: 3rem;
+            grid-column: auto / span 2;
+            margin: 2rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $color-gray-light;
+            &__input {
+                opacity: 1;
+                width: 100%;
+                background-color: $color-white;
+            }
+        }
+        &__filled {
+            position: relative;
+            max-height: 3rem;
+            grid-column: auto / span 2;
+            margin: 2rem 0;
+        }
+    }
+}
+
+.form__group {
+    grid-column: auto / span 1;
+    &--long {
+        grid-column: 1 / span 2;
+    }
+}

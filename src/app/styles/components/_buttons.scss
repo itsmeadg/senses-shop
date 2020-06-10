@@ -1,0 +1,86 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    padding: 1rem 2rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
+    font-family: $font-family-primary;
+
+    //Change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active:not(:disabled),
+  &:focus:not(:disabled), {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &:disabled {
+    background-color: $color-gray-dark;
+    cursor: not-allowed;
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--inverted {
+    background-color: $color-blue-darker;
+    color: $color-white;
+    &::after {
+      background-color: $color-blue-darker;
+    }
+  }
+  &--gray {
+    background-color: $color-gray-lightest;
+    color: $color-black;
+    &::after {
+      background-color: $color-gray-lightest;
+    }
+  }
+  &--large {
+    .btn {
+      &__text {
+        padding: 2rem 3rem;
+        font-size: 1.8rem;
+        line-height: 3rem;
+      }
+    }
+  }
+}

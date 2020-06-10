@@ -1,0 +1,21 @@
+.shop-billing {
+    margin-top: 12rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4rem;
+
+    &__form {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        justify-self: right;
+        &__button {
+            margin-top:4rem;
+        }
+    }
+
+    &__summary {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+        justify-self: left;
+    }
+}

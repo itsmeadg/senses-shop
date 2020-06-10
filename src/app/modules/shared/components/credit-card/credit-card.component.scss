@@ -1,0 +1,18 @@
+@import '~styles.scss';
+
+.credit-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: $font-family-primary;
+    &__logo {
+        width: 5rem;
+        &__img {
+            max-width: 100%;
+        }
+    }
+    &__last {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+}

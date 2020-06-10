@@ -1,0 +1,39 @@
+.shop-confirmation {
+    margin-top: 12rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4rem;
+    grid-row-gap: 2rem;
+    grid-auto-rows: auto;
+
+    &__information {
+        justify-self: right;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 2;
+    }
+
+    
+
+    .card {
+        width: 60rem;
+        margin-bottom: 4rem;
+        &__information {
+            margin-left: 7rem;
+            &__element {
+                margin: 0.2rem;
+                &:last-of-type{
+                    margin-bottom: 3rem;
+                }
+            }
+            &__component {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+
+    &__summary {
+        justify-self: left;
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 2;
+    }
+}

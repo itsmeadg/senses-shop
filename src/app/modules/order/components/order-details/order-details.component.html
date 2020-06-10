@@ -1,0 +1,65 @@
+<div class="order-details">
+  <h1 class="order-details__title">Order Details</h1>
+  <div class="order-details__data" *ngIf="order">
+    <h2 class="order-details__data__subtitle">Order {{orderId}} was placed on {{order.datePlaced | date:'full'}}.</h2>
+    <div class="order-details__data__thanks">
+      <img class="order-details__data__thanks__image" src="/assets/order/check.svg">
+      <h1 class="order-details__data__thanks__heading">Thank you for your purchase.</h1>
+    </div>
+    <div class="order-details__data__cart">
+      <table class="order-details__data__cart__items">
+        <thead>
+          <tr class="order-details__data__cart__items__row">
+            <th colspan="2" class="order-details__data__cart__items__row__header">
+              Product
+            </th>
+            <th class="order-details__data__cart__items__row__header">
+              Price
+            </th>
+            <th class="order-details__data__cart__items__row__header">
+              Quantity
+            </th>
+            <th class="order-details__data__cart__items__row__header">
+              Subtotal
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="order-details__data__cart__items__row" *ngFor="let item of items">
+            <td class="order-details__data__cart__items__row__image">
+              <img src="{{item.image}}" alt="{{item.name}}">
+            </td>
+            <td class="order-details__data__cart__items__row__name">{{item.name}}</td>
+            <td class="order-details__data__cart__items__row__price">{{item.price | currency: 'EUR'}}</td>
+            <td class="order-details__data__cart__items__row__quantity">{{item.quantity}}</td>
+            <td class="order-details__data__cart__items__row__totalPrice">{{item.totalPrice | currency: 'EUR'}}</td>
+          </tr>
+          <tr>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="order-details__data__shipping">
+      <h2 class="order-details__data__shipping__title">
+        Shipping Information
+      </h2>
+      <img class="order-details__data__shipping__image" src="/assets/order/stamp.svg" alt="post">
+      <div class="order-details__data__shipping__field">
+        {{order.shipping.name}}
+      </div>
+      <div class="order-details__data__shipping__field">
+        {{order.shipping.address}}
+      </div>
+      <div class="order-details__data__shipping__field">
+        {{order.shipping.city}}
+      </div>
+      <div class="order-details__data__shipping__field">
+        {{order.shipping.postcode}}
+      </div>
+      <div class="order-details__data__shipping__field">
+        {{order.shipping.country}}
+      </div>
+    </div>
+  </div>
+</div>

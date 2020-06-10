@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|PT+Sans|Poiret+One|Roboto');
+@import './app/styles/main.scss';
+
+
+
+
+//Sizing for elements
+$footer-height: 4.5rem;
+
+//Alignment classes
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+//Card fonts
+$card-title-font: "Open Sans", sans serif;
+$card-font: "Open Sans", sans serif;
+
+//Card font sizes
+$card-title-size: 1rem;
+$card-category-size: 0.8rem;
+$card-price-size: 0.8rem;
+
+//Overlay color
+$cart-add-overlay: rgba(204, 204, 204, 0.9);
+
+body { margin: 0; }

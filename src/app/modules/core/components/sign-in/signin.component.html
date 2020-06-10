@@ -1,0 +1,21 @@
+<div class="shop-signin" @fadeIn>
+  <img class="shop-signin__logo" src="/assets/images/logo-blue.png" height="60px">
+  <h3 class="shop-signin__title">Login</h3>
+  <hr>
+  <form class="shop-signin__form" form>
+    <div class="shop-signin__form__group">
+      <input class="shop-signin__form__group__input" type="email" name="email" placeholder="Email" [(ngModel)]="email">
+      <label for="email" class="shop-signin__form__group__label">Email address</label>
+    </div>
+    <div class="shop-signin__form__group">
+      <input class="shop-signin__form__group__input" type="password" name="password" placeholder="Password" [(ngModel)]="password">
+      <label for="password" class="shop-signin__form__group__label">Password</label>
+    </div>
+    <button (click)="signInWithUserPass()" class="shop-signin__form__button" type="button" value="">Sign in</button>
+  </form>
+
+  <button (click)="signInWithGoogle()" role="button" class="shop-signin__google">
+    <img class="shop-signin__google__icon" src="/assets/ext-logos/search.svg">
+    <span class="shop-signin__google__text">Sign in with Google</span>
+  </button>
+</div>

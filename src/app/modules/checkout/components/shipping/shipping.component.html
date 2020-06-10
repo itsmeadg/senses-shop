@@ -1,0 +1,15 @@
+<div class="shop-shipping" *ngIf="cart">
+  <div class="shop-shipping__form">
+    <shipping-form [cart]="cart" (validityChange)="shippingFormValid = $event"></shipping-form>
+    <div class="shop-shipping__form__button">
+      <button class="btn btn--inverted btn--large" *ngIf="cart.totalItemsCount" (click)="shippingComplete()" [disabled]="!shippingFormValid">
+        <span class="btn__text">
+          <i class="fas fa-credit-card"></i> Billing
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="shop-shipping__sumary">
+    <order-summary [cart]="cart" [cartIterable]="cartIterable"></order-summary>
+  </div>
+</div>

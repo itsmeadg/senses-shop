@@ -1,0 +1,105 @@
+@import '~styles.scss';
+//Card fonts
+$card-title-font: 'Open Sans',sans serif;
+//Card font sizes
+$card-title-size: 15px;
+$card-category-size: 13px;
+$card-price-size: 13px;
+//Overlay color
+$cart-add-overlay: rgba(204, 204, 204, 0.9);
+.shop-area {
+    display: grid;
+    grid-template-columns: 0.8fr 4fr;
+    margin-top: 4.5rem;
+    &__filters {
+        grid-column: 1 / 2;
+        justify-self: center;
+        &__content {
+            margin: 5rem;
+        }
+    }
+    &__items {
+        grid-column: 2 / 3;
+        margin-top: 4rem;
+        margin-right: 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2rem;
+        &__item {
+            grid-column: auto/ span 1;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+        }
+    }
+    &__empty {
+        grid-column: 2 / 3;
+        grid-row: 1 / auto;
+        margin-top: 20vh;
+        font-family: $font-family-primary;
+        text-align: center;
+        padding: 2.5rem;
+        &__image {
+            width: 20rem;
+        }
+        &__subtitle {
+            font-size: 4rem;
+            padding: 1.2rem;
+        }
+        &__text {
+            font-size: 1.5rem;
+        }
+    }
+    &__loading {
+        grid-column: 2 / 3;
+        grid-row: 1 / auto;
+        margin-top: 30vh;
+        font-family: $font-family-primary;
+        text-align: center;
+        padding: 2.5rem;
+        &__image {
+            width: 11rem;
+            animation: loader 1.5s ease-in-out infinite;
+            transform-origin: center;
+        }
+        @keyframes loader {
+          0% {
+            transform: rotate(0deg)
+          }
+          50% {
+            transform: rotate(90deg)
+          }
+          80% {
+            transform: rotate(360deg)
+          }
+          100% {
+            transform: rotate(360deg)
+          }
+        }
+    }
+    @include respond(big-desk) {
+        &__items {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+    @include respond(tab-land) {
+        &__items {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    @include respond(tab-port) {
+        &__items {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @include respond(phone) {
+        &__items {
+            margin: 0 auto;
+            padding: 0 6.5rem;
+            grid-column: 1 / span 2;
+            grid-template-columns: repeat(1, 1fr);
+            &__item {
+                margin: 0 auto;
+            }
+        }
+    }
+}

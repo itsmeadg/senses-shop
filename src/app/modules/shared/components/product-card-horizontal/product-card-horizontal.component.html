@@ -1,0 +1,21 @@
+<div class="card__horizontal">
+  <div class="card__horizontal__body">
+    <img class="card__horizontal__body__image" routerLink="/shop/{{product.sku}}" [src]="product.image" [hidden]="imgReady" alt="{{product.name}}">
+    <div class="card__horizontal__body__text">
+      <h4 class="card__horizontal__body__text__title" routerLink="/shop/{{product.sku}}">{{product.name}}</h4>
+      <div class="card__horizontal__body__text__detail">
+        <p class="card__horizontal__body__text__detail__category">{{product.category}}
+          <span *ngIf="product.gender">| {{product.gender}}</span>
+        </p>
+        <p class="card__horizontal__body__text__detail__price">{{product.price | currency: 'EUR': 'symbol'}}</p>
+      </div>
+    </div>
+    <button *ngIf="showActions" class="
+        card__horizontal__body__wishlist">
+      <i class="material-icons"> favorite_border </i>
+    </button>
+    <div class="card__horizontal__body__controls">
+      <product-add *ngIf="showActions && cart" class="card__horizontal__body__controls__button" [product]="product"></product-add>
+    </div>
+  </div>
+</div>

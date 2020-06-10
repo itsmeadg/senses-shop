@@ -1,0 +1,86 @@
+@import '~styles.scss';
+.order-details {
+    margin-top: 6rem;
+    font-family: $font-family-primary;
+    &__title {
+        font-size: 3rem;
+        margin: 2rem 2rem;
+        padding: 1rem;
+        text-align: left;
+    }
+    &__data {
+        display: grid;
+        grid-template-columns: 0.7fr 0.3fr;
+        &__subtitle {
+            grid-column: 1 / span 1;
+            padding: 2rem;
+            margin: 1rem 2rem;
+        }
+        &__thanks {
+            grid-column: 2 / span 1;
+            text-align: center;
+            &__image {
+                width: 10rem;
+            }
+            &__heading {
+                font-size: 1.4rem;
+                margin: 1rem 1rem 3rem 1rem;
+                padding: 1rem;
+            }
+        }
+        &__cart {
+            grid-column: 1 / span 1;
+            &__items {
+                width: 90%;
+                padding: 2rem;
+                margin: 0 auto;
+                border-collapse: collapse;
+                &__row {
+                    font-size: 1.4rem;
+                    text-align: center;
+                    border-bottom: $color-gray 1px solid;
+                    &__header {
+                        text-align: center;
+                        font-size: 1.6rem;
+                        padding: 1rem;
+                    }
+                    &__image {
+                        img {
+                            padding: 1rem;
+                            width: 12rem;
+                        }
+                    }
+                }
+            }
+        }
+        &__shipping {
+            //Main grid arrangement
+            grid-column: 2 / span 1;
+            justify-self: center; //Unit styles
+            display: grid;
+            grid-template-columns: 0.8fr 0.2fr;
+            width: 35rem;
+            padding: 2rem;
+            border: 1px $color-gray solid;
+            &__title {
+                font-size: 1.6rem;
+                padding: 1rem 0.3rem;
+                text-align: left;
+                grid-column: 1 / span 1;
+            }
+            &__image {
+                justify-self: end;
+                width: 5rem;
+                grid-column: 2 / span 1;
+            }
+            &__field {
+                padding: 0.3rem 1rem;
+                font-size: 1.4rem;
+                grid-column: 1 / span 2;
+            }
+            &>div:first-of-type {
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+<div class="shop-admin-product" *ngIf="product; else loading">
+  <div class="shop-admin-product__header">
+    <h2>{{product?.name}}</h2>
+    <button mat-icon-button class="shop-admin-product__header__button" (click)="delete(product)" color="warn">
+      <i class="material-icons">
+        delete_forever
+      </i>
+    </button>
+  </div>
+
+  <div class="shop-admin-product__form" [formGroup]="form" *ngIf="product">
+    <mat-form-field class="shop-admin-product__form__field shop-admin-product__form__field--name">
+      <input matInput placeholder="Name" [(ngModel)]="product.name" formControlName="name" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="shop-admin-product__form__field shop-admin-product__form__field--image">
+      <input matInput placeholder="Image" [(ngModel)]="product.image" formControlName="image" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="shop-admin-product__form__field shop-admin-product__form__field--category">
+      <mat-select placeholder="Category" [(ngModel)]="product.category" formControlName="category">
+        <mat-option *ngFor="let category of categories$ | async" [value]="category.name">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="shop-admin-product__form__field shop-admin-product__form__field--gender">
+      <mat-select placeholder="Gender" [(ngModel)]="product.gender" formControlName="gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          {{ gender.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="shop-admin-product__form__field shop-admin-product__form__field--sku">
+      <input matInput placeholder="SKU" [(ngModel)]="product.sku" formControlName="sku">
+    </mat-form-field>
+
+    <mat-form-field class="shop-admin-product__form__field shop-admin-product__form__field--price">
+      <input matInput placeholder="Price" [(ngModel)]="product.price" formControlName="price" type="number">
+      <span matPrefix>€&nbsp;</span>
+      <span matSuffix>.00</span>
+    </mat-form-field>
+
+    <div class="shop-admin-product__form__group shop-admin-product__form__group--details">
+      <mat-form-field class="shop-admin-product__form__group__field">
+        <input matInput placeholder="Detail" formControlName="details" type="text" (keyup.enter)="pushValue($event, 'details')">
+      </mat-form-field>
+      <mat-list dense>
+        <mat-list-item *ngFor="let detail of product?.details" class="product__form__group__item">
+          - {{detail}}
+        </mat-list-item>
+      </mat-list>
+
+    </div>
+
+    <div class="shop-admin-product__form__group shop-admin-product__form__group--materials">
+      <mat-form-field class="shop-admin-product__form__group__field">
+        <input matInput placeholder="Material" formControlName="materials" type="text" (keyup.enter)="pushValue($event, 'materials')">
+      </mat-form-field>
+      <mat-list dense>
+        <mat-list-item *ngFor="let material of product?.materials" class="product__form__group__item">
+          - {{material}}
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <mat-form-field class="shop-admin-product__form__field shop-admin-product__form__field--care">
+      <input matInput placeholder="Care" [(value)]="product && product.care" id="care" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="shop-admin-product__form__field shop-admin-product__form__field--description">
+      <textarea matInput placeholder="Description" [(value)]="product && product.description"></textarea>
+    </mat-form-field>
+
+    <div class="shop-admin-product__form__buttons">
+      <button mat-raised-button color="primary" (click)="save(product)">Save</button>
+    </div>
+  </div>
+
+  <div class="shop-admin-product__card">
+    <product-card *ngIf="product" [product]="product" [showActions]="false"></product-card>
+  </div>
+</div>
+
+<ng-template #loading>
+    <mat-spinner class="loading"></mat-spinner>
+  </ng-template>

@@ -1,0 +1,55 @@
+@import '~styles.scss';
+
+.shop-admin-products {
+    margin-top: 6rem;
+    font-family: $font-family-primary;
+    width: 100%;
+    &__content{
+      width: 70%;
+      margin: 0 auto;
+
+      &__header {
+        padding: 2rem 0;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &__table {
+        width: 100%;
+      }
+    }
+    .mat-form-field {
+      width: 10%;
+      font-size: 2rem;
+      transition: width 1s ease-out;
+      &:focus{
+        width: 20%;
+      }
+    }
+
+    .mat-column {
+      &-sku {
+        text-align: right;
+        &::ng-deep .mat-sort-header-container{
+          justify-content: flex-end;
+        }
+      }
+      &-price {
+        &::ng-deep .mat-sort-header-container{
+          justify-content: flex-end;
+        }
+        text-align: right;
+      }
+      &-edit {
+        text-align: right;
+      }
+    }
+
+    th.mat-column-edit {
+      padding-right: 6rem;
+    }
+  }
+
+.loading {
+  margin: 45vh auto;
+}

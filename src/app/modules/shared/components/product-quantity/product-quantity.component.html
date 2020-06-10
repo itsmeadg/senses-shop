@@ -1,0 +1,15 @@
+<div class="product-quantity">
+  <button class="btn btn--inverted" (click)="removeFromCart()">
+    <span class="btn__text">
+      -
+    </span>
+  </button>
+  <p class="product-quantity__number">
+    {{ cart?.items[product.sku] && cart?.items[product.sku].quantity }}
+  </p>
+  <button class="btn btn--inverted" (click)="addToCart()">
+    <span class="btn__text">
+      +
+    </span>
+  </button>
+</div>

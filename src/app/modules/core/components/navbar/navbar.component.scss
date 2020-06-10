@@ -1,0 +1,139 @@
+@import '~styles.scss';
+
+$nav-active: #FF6978;
+$nav-hover: #17274C;
+$nav-text: white;
+$dropdown-link-hover: #ececec;
+$dropdown-background: white;
+$cart-count-background: #f4a840;
+
+
+.shop-nav {
+  position: fixed;
+  z-index: 500;
+  width: 100%;
+  top:0;
+  left: 0;
+  background-color: $color-blue-darker;
+  font-family: 'PT Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  &__brand {
+    height: 100%;
+    padding: 1rem 2rem;
+    &__image {
+      height: 100%;
+    }
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+
+    &__item {
+      font-size: 2rem;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+
+      &.active {
+        background-color: $color-blue-dark;
+      }
+      &__link {
+        position: relative;
+        color: $nav-text;
+        text-decoration: none;
+      }
+      &:hover {
+        background-color: $color-blue-dark;
+      }
+    }
+
+    &--start{
+      justify-content: flex-start;
+    }
+
+    &--end {
+      justify-content: flex-end;
+    }
+  }
+
+  @include respond(big-desk) {
+
+  }
+
+  @include respond(tab-land) {
+
+  }
+
+  @include respond(tab-port) {
+  }
+
+  @include respond(phone) {
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 500;
+
+  &__content {
+    position: absolute;
+    opacity: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 100%;
+    top: 105%;
+    left: 0;
+    transition: opacity 2s linear 1s;
+    visibility: hidden; /* hides sub-menu */
+    transform: translateY(-2em);
+    z-index: -1;
+    transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+
+    &__item {
+      color: black;
+      padding: 1rem 1rem;
+      font-size: 1.5rem;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        background-color: $dropdown-link-hover;
+      }
+    }
+  }
+
+  &:hover &__content {
+    display: block;
+    opacity: 1;
+    background-color: $dropdown-background;
+    visibility: visible; /* shows sub-menu */
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    transition-delay: 0s, 0s, 0.3s;
+  }
+}
+
+
+.badge {
+  position: relative;
+  &__container{
+    position:absolute;
+    width:1.5rem;
+    height:1.5rem;
+    line-height: 1.6rem;
+    top:-.5rem;
+    right:-1rem;
+    font-size:1rem;
+    background-color: $color-orange;
+    color: $color-white;
+    text-align:center;
+    border-radius:50%;
+    box-shadow:0 0 1px #333;
+  }
+}
